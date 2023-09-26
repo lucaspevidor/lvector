@@ -61,7 +61,8 @@ const scaledVector = vector.scale(factor);
 - **Equality Check:**
 
 ```typescript
-const isEqual = vector1.isEqual(vector2);
+// Checks if two vectors are equal. Epsilon is optional, defaults to 0.001.
+const isEqual = vector1.isEqual(vector2, epsilon);
 ```
 
 - **Magnitude:**
