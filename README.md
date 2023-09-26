@@ -70,6 +70,24 @@ const isEqual = vector1.isEqual(vector2);
 const magnitude = vector.mag();
 ```
 
+- **Dot Product:**
+
+```typescript
+const dotProduct = v1.dot(v2);
+```
+
+- **Move To:**
+
+```typescript
+const origin = new Vector2(10, 10);
+const destination = new Vector2(20, 20);
+
+// Interpolation value from 0 to 1
+let interp = 0.5;
+const interpolatedPosition = origin.moveTo(destination, interp);
+// Result: interpolatedPosition is (15, 15)
+```
+
 - **Angle:**
 
 ```typescript

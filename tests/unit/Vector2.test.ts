@@ -141,4 +141,34 @@ describe("Vector2", () => {
         expect(v1).toEqual(v2);
         expect(v1).toStrictEqual(v2);
     });
+
+    test("Dot product", () => {
+        const v1 = new Vector2(1, 2);
+        const v2 = new Vector2(3, 4);
+        const dot = v1.dot(v2);
+        expect(dot).toEqual(11);
+    })
+
+    test("MoveTo", () => {
+        const origin = new Vector2(10, 10);
+        const destination = new Vector2(20, 20);
+        let interp = 0;
+        expect(origin.moveTo(destination, interp).x).toEqual(10);
+        expect(origin.moveTo(destination, interp).y).toEqual(10);
+        interp = 0.5;
+        expect(origin.moveTo(destination, interp).x).toEqual(15);
+        expect(origin.moveTo(destination, interp).y).toEqual(15);
+        interp = 1;
+        expect(origin.moveTo(destination, interp).x).toEqual(20);
+        expect(origin.moveTo(destination, interp).y).toEqual(20);
+    })
+
+    test("MoveTo with invalid arguments should throw", () => {
+        const origin = new Vector2(10, 10);
+        const destination = new Vector2(20, 20);
+        let interp = -0.1;
+        expect(() => origin.moveTo(destination, interp)).toThrow();
+        interp = 1.1;
+        expect(() => origin.moveTo(destination, interp)).toThrow();
+    });
 });
