@@ -2,7 +2,7 @@ export class Vector2 {
     constructor(
         public x: number,
         public y: number
-    ) {};
+    ) { };
 
     public static unit(): Vector2 {
         return new Vector2(1, 0);
@@ -69,6 +69,18 @@ export class Vector2 {
 
     public mag(): number {
         return Math.sqrt(this.x ** 2 + this.y ** 2);
+    }
+
+    public dot(other: Vector2) {
+        return this.x * other.x + this.y * other.y;
+    }
+
+    public moveTo(destination: Vector2, interp: number) {
+        if (interp < 0 || interp > 1) {
+            throw new Error("Interpolation must be between 0 and 1");
+        }
+
+        return destination.subtract(this).scale(interp).add(this);
     }
 
     public angle(): number {
