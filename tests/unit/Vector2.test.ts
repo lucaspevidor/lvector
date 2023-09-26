@@ -117,6 +117,14 @@ describe("Vector2", () => {
         expect(v1.isEqual(v2)).toBeFalsy();
     });
 
+    test("Check equality with epsilon", () => {
+        const v1 = new Vector2(1, 1);
+        const v2 = new Vector2(1.001, 1.001);
+        expect(v1.isEqual(v2, 0.01)).toBeTruthy();
+        expect(v1.isEqual(v2, 0.001)).toBeTruthy();
+        expect(v1.isEqual(v2, 0.0009)).toBeFalsy();
+    });
+
     test("Rotate vector by 90 degrees", () => {
         const v = new Vector2(2, 1).r90deg();
         expect(compareFloat(v.x, -1, 0.001)).toBeTruthy();
