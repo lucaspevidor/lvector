@@ -1,6 +1,6 @@
 {
   "name": "lvector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A 2D math vector library",
   "main": "dist/Vector2.js",
   "types": "dist/Vector2.d.ts",
